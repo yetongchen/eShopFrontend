@@ -1,0 +1,53 @@
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-4 text-center">
+            <img [src]="product.imageUrl" alt="{{ product.name }}" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-md-8">
+            <h1 class="fw-bold">{{ product.name }}</h1>
+            <div class="mb-3">
+                <span *ngFor="let star of stars" class="material-icons text-warning">star</span>
+            </div>
+            <h3 class="text-primary fw-bold">${{ product.price }}</h3>
+            <p class="my-4">{{ product.description }}</p>
+            <div class="d-flex align-items-center">
+                <label for="quantity" class="me-2">QTY</label>
+                <input id="quantity" type="number" [(ngModel)]="quantity" class="form-control w-25 me-3 text-center" min="1">
+                <button class="btn btn-dark" (click)="addToCart()">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+  
+    <!-- 选项卡内容 -->
+    <div class="mt-5">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" data-bs-toggle="tab" href="#description">Description</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#additional-info">Additional Info</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#reviews">Reviews</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#video">Video</a>
+            </li>
+        </ul>
+        <div class="tab-content p-4 bg-light border border-top-0 rounded-bottom">
+            <div id="description" class="tab-pane fade show active">
+                <p>{{ product.longDescription }}</p>
+            </div>
+            <div id="additional-info" class="tab-pane fade">
+            <!-- 其他信息内容 -->
+            </div>
+            <div id="reviews" class="tab-pane fade">
+            <!-- 评论内容 -->
+            </div>
+            <div id="video" class="tab-pane fade">
+            <!-- 视频内容 -->
+            </div>
+        </div>
+    </div>
+</div>
+  
